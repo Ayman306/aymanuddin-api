@@ -5,8 +5,11 @@
   "main": "dist/app.js",
   "scripts": {
     "start": "node dist/app.js",
+    "start:prod": "node dist/app.js",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
-    "build": "tsc",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc",
+    "build:watch": "tsc -w --preserveWatchOutput",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev --name init",
     "prisma:studio": "prisma studio",
